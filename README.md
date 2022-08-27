@@ -1,5 +1,5 @@
 # Information
-Launch code directly from Discord!
+Launch code directly from Discord! To start the bot, open `start.bat`
 
 Supported file format is .py
 # Commands
