@@ -107,7 +107,7 @@ async def execute(ctx):
                 await ctx.send(embed=em)
                 os.remove(f'src/execfiles/singlFiles/{attach.filename}')
             elif file_extension == 'py':
-                p = subprocess.Popen(["start", "cmd", "/k", f"cd path-to-bots-folder/src/execfiles/singlFiles/ & py {attach.filename}"], shell = True)
+                p = subprocess.Popen(["start", "cmd", "/k", f"cd src/execfiles/singlFiles/ & py {attach.filename}"], shell = True)
                 p.wait
                 emb = nc.Embed(
                     title='Your file was successfully executed!',
@@ -168,11 +168,11 @@ async def zipexecute(ctx, *, beginFile):
                 msg1 = await ctx.send('Extracting files...')
                 os.remove(f'src/execfiles/ziparch/{attach.filename}')
                 await msg1.edit('Deleting original .zip file...')
-                p = subprocess.Popen(["start", "cmd", "/k", f"cd path-to-bots-folder/src/execfiles/ziparch/{NewfolderName}/ & py {beginFile}"], shell = True)
+                p = subprocess.Popen(["start", "cmd", "/k", f"cd src/execfiles/ziparch/{NewfolderName}/ & py {beginFile}"], shell = True)
                 p.wait
                 emb = nc.Embed(
                     title='Your files were successfully executed!',
-                    description=f'processName1 Variable = {beginFile}\nprocessName2 Variable: {NewfolderName}\nTo end proccess, type `,zipbreak "{beginFile}" "{NewfolderName}"`',
+                    description=f'processName1 Variable = {beginFile}\nprocessName2 Variable = {NewfolderName}\nTo end proccess, type `,zipbreak "{beginFile}" "{NewfolderName}"`',
                     color = nc.Color.from_rgb(41, 242, 81)
                 )
                 await msg1.edit(content="", embed=emb)
